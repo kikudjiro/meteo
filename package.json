@@ -1,0 +1,23 @@
+{
+  "name": "meteo_widget",
+  "version": "1.0.0",
+  "description": "Weather forecast widgets system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server/server.js"
+  },
+  "author": "Alexander Alexeychuk",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "ioredis": "^3.1.1",
+    "moment": "^2.18.1",
+    "pug": "^2.0.0-rc.2",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "shortid": "^2.2.8"
+  }
+}

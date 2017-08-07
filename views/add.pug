@@ -1,0 +1,35 @@
+extends admin_layout.pug
+block content
+    h2 Add new Widget
+
+    p
+        a.btn.btn-default(href='/') < Back
+
+    form(action='/add' method='post')
+        .form-group
+            label Region:
+            select.form-control(name='regionId')
+                option(value='msk') Moscow
+                option(value='sp') Saint Petersburg
+                option(value='nn') Nizhniy Novgorod
+
+        .form-group
+            label Period:
+            select.form-control(name='period')
+                option(value='1') 1 day
+                option(value='3') 3 days
+                option(value='week') Week
+
+        .form-group
+            label Layout:
+            .radio
+                label
+                    input(type='radio' name='layout' id='layout_h' value='h' checked='checked')
+                    .
+                        Horizontal
+                label(style='margin-left:20px;')
+                    input(type='radio' name='layout' id='layout_v' value='v')
+                    .
+                        Vertical
+
+        button.btn.btn-primary(type='submit') Add

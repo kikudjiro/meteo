@@ -1,0 +1,40 @@
+extends admin_layout.pug
+block content
+    h2 Edit widget #{widget.id}
+
+    p
+        a.btn.btn-default(href='/') < Back
+
+    form(action='/update' method='post')
+        input(type='hidden' name='id' value=widget.id)
+
+        .form-group
+            label Region:
+            select.form-control(id='regionId' name='regionId')
+                option(value='msk' selected= widget.regionId === 'msk') Moscow
+                option(value='sp' selected= widget.regionId === 'sp') Saint Petersburg
+                option(value='nn' selected= widget.regionId === 'nn') Nizhniy Novgorod
+
+        .form-group
+            label Period:
+            select.form-control(id='period' name='period')
+                option(value='1' selected= widget.period === '1') 1 day
+                option(value='3' selected= widget.period === '3') 3 days
+                option(value='week' selected= widget.period === 'week') Week
+
+        .form-group
+            label Layout:
+            .radio
+                label
+                    input(type='radio' name='layout' id='layout_h' value='h' checked= widget.layout === 'h')
+                    .
+                        Horizontal
+                label(style='margin-left:20px;')
+                    input(type='radio' name='layout' id='layout_v' value='v' checked= widget.layout === 'v')
+                    .
+                        Vertical
+
+        button.btn.btn-primary(type='submit') Update
+
+    h3 Widget code:
+    textarea.form-control(rows=3)= generateSnippet()

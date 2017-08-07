@@ -1,0 +1,15 @@
+extends admin_layout.pug
+block content
+    h2 Widgets
+
+    p
+        a.btn.btn-default(href='/add') Add Widget
+
+    if widgets
+        table.table
+            for widget in widgets || []
+                tr
+                    td
+                        - id= widget.substring('widget:'.length)
+                        a(href='/edit/' + id)= id
+
